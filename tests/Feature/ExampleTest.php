@@ -8,12 +8,12 @@ use Tests\TestCase;
 class ExampleTest extends TestCase
 {
     /**
-     * A basic test example.
+     * The root route exists to send a visitor to the panel, which is the only
+     * thing in this application worth looking at. The stock version of this test
+     * expected a 200 and had been failing since that redirect was added.
      */
-    public function test_the_application_returns_a_successful_response(): void
+    public function test_the_root_route_sends_a_visitor_to_the_panel(): void
     {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $this->get('/')->assertRedirect('/admin');
     }
 }

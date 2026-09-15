@@ -57,10 +57,34 @@ chosen to exercise the things that actually break:
 - **a polymorphic pair**, `taggables`, which has no single table to point at
 - **an enum**, `books.status`, whose values are clickable in the diagram
 
-**No rows are seeded beyond one user.** An empty bookshop draws exactly the same
-diagram as a full one, because the diagram is built from structure. If this
+**The bookshop is seeded with rows, and they are for the panel rather than for
+the diagram.** An empty bookshop draws exactly the same diagram as a full one,
+because the diagram is built from structure, and that has not changed: if this
 application ever needs data to make the schema page look right, something has
-gone wrong in the plugin.
+gone wrong in the plugin. The rows are here so the two halves can be compared.
+Browse the books, open the schema page, and find the same tables, columns and
+keys read straight from the database.
+
+Every relationship above has rows behind it, including the awkward ones: authors
+with and without a mentor, and reviews with and without an account.
+
+## What the panel manages, and what it does not
+
+The resources are not a complete admin, and the gaps are the interesting part.
+
+| Table | In the panel |
+| --- | --- |
+| `publishers`, `authors`, `books`, `reviews`, `tags` | A resource each |
+| `users` | A resource, under Access |
+| `author_book`, `taggables` | **No resource.** Pivots, managed through the relation managers on Book, Author and Tag, which is what a pivot deserves |
+| `migrations`, `cache`, `cache_locks`, `jobs`, `job_batches`, `failed_jobs`, `sessions`, `password_reset_tokens` | **Nothing.** Framework plumbing, and no panel manages it |
+
+That last row is the part of the database an admin cannot see, which is what the
+plugin's planned resource linking is meant to report. Worth knowing before that
+feature is built: **Truss already excludes most of those tables by config**, so
+the diagram draws eight, not seventeen. Excluded and unmapped are different
+things, and a naive implementation would report the two pivots as gaps when they
+are nothing of the sort.
 
 ## What to look at
 
@@ -72,18 +96,16 @@ gone wrong in the plugin.
 - Filter, focus and depth all work against the embedded payload, client side.
 - The health markers come from `truss:doctor`, which rides the same payload.
 
-## Known rough edges
+## Theming, which is done
 
-**Theming is not done.** The plugin currently loads Truss's own stylesheet, so
-the diagram brings its blueprint look into the panel instead of taking the
-panel's colours, and the grid background escapes the page container. Consuming
-the panel's own CSS custom properties is planned work, not an oversight, and it
-is written up in the plugin's `docs/DESIGN.md`.
+The diagram takes the panel's own colours, from the custom properties Filament
+generates out of the panel's colour configuration. Change the panel's primary
+colour and the diagram follows it without the plugin knowing the colour's name.
 
-**Dark mode will look wrong** for the same reason, and for a second one: Filament
-toggles dark mode client side with no page load, while Mermaid takes its theme at
-render time, so the diagram has to be re-rendered on the toggle rather than
-merely restyled.
+Dark mode was expected to be the hard half and was not: Truss initialises Mermaid
+with a neutral base theme and paints from CSS variables, so light and dark need no
+re-render. All that was missing was that Filament says `dark` with a class and
+Truss reads a `data-theme` attribute, which a few lines of script now mirror.
 
 ## License
 
