@@ -12,10 +12,10 @@
             "dist": {
                 "type": "path",
                 "url": "../filament-truss",
-                "reference": "bffe72f2d22f920376de6d2aed79b0835960d323"
+                "reference": "e8082ed5a11e5fb1a525ea00dd12ad96a3c063d8"
             },
             "require": {
-                "albertoarena/laravel-truss": "^1.12",
+                "albertoarena/laravel-truss": "^1.13",
                 "filament/filament": "^5.0",
                 "illuminate/contracts": "^12.0 || ^13.0",
                 "illuminate/support": "^12.0 || ^13.0",
@@ -101,16 +101,16 @@
         },
         {
             "name": "albertoarena/laravel-truss",
-            "version": "v1.12.0",
+            "version": "v1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/albertoarena/laravel-truss.git",
-                "reference": "a977cb3d81afed5193a45383d24991044d86c9fd"
+                "reference": "010e79a35df52257e132528f25191d9d463b720f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/albertoarena/laravel-truss/zipball/a977cb3d81afed5193a45383d24991044d86c9fd",
-                "reference": "a977cb3d81afed5193a45383d24991044d86c9fd",
+                "url": "https://api.github.com/repos/albertoarena/laravel-truss/zipball/010e79a35df52257e132528f25191d9d463b720f",
+                "reference": "010e79a35df52257e132528f25191d9d463b720f",
                 "shasum": ""
             },
             "require": {
@@ -178,7 +178,7 @@
                     "type": "ko-fi"
                 }
             ],
-            "time": "2026-09-13T06:36:21+00:00"
+            "time": "2026-09-15T19:57:20+00:00"
         },
         {
             "name": "anourvalar/eloquent-serialize",
