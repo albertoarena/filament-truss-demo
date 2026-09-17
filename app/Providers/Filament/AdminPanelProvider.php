@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use AlbertoArena\FilamentTruss\FilamentTrussPlugin;
+use App\Filament\Widgets\TrussInfoWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -41,6 +42,7 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
+                TrussInfoWidget::class,
             ])
             // The whole point of this application. Everything else here is the
             // stock Filament panel, so anything that looks wrong on the schema
