@@ -52,13 +52,20 @@
             </div>
 
             <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;">
-                <x-filament::link
-                    color="gray"
-                    :href="SchemaPage::getUrl()"
-                    :icon="Heroicon::CircleStack"
-                >
-                    Database schema
-                </x-filament::link>
+                {{-- Guarded, because the page guards itself. With
+                     `truss.enabled` false the page answers 403 and Filament
+                     drops it from the navigation, and a card still offering the
+                     link would be the one place in this panel that lies about
+                     what is reachable. --}}
+                @if (SchemaPage::canAccess())
+                    <x-filament::link
+                        color="gray"
+                        :href="SchemaPage::getUrl()"
+                        :icon="Heroicon::CircleStack"
+                    >
+                        Database schema
+                    </x-filament::link>
+                @endif
 
                 <x-filament::link
                     color="gray"
