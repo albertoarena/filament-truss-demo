@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Books;
 
+use AlbertoArena\FilamentTruss\Actions\Concerns\HasViewInSchemaAction;
 use App\Filament\Resources\Books\Pages\CreateBook;
 use App\Filament\Resources\Books\Pages\EditBook;
 use App\Filament\Resources\Books\Pages\ListBooks;
@@ -21,6 +22,8 @@ use Filament\Tables\Table;
 
 class BookResource extends Resource
 {
+    use HasViewInSchemaAction;
+
     protected static ?string $model = Book::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBookOpen;

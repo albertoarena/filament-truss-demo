@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Authors;
 
+use AlbertoArena\FilamentTruss\Actions\Concerns\HasViewInSchemaAction;
 use App\Filament\Resources\Authors\Pages\CreateAuthor;
 use App\Filament\Resources\Authors\Pages\EditAuthor;
 use App\Filament\Resources\Authors\Pages\ListAuthors;
@@ -19,6 +20,8 @@ use Filament\Tables\Table;
 
 class AuthorResource extends Resource
 {
+    use HasViewInSchemaAction;
+
     protected static ?string $model = Author::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUsers;

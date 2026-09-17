@@ -13,6 +13,7 @@ class ListAuthors extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
+            AuthorResource::viewInSchemaAction(),
             CreateAction::make(),
         ];
     }

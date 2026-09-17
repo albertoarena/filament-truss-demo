@@ -13,6 +13,7 @@ class ListBooks extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
+            BookResource::viewInSchemaAction(),
             CreateAction::make(),
         ];
     }
