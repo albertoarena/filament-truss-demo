@@ -77,9 +77,12 @@
                     Truss dashboard
                 </x-filament::link>
 
+                {{-- The Filament guide rather than the site root: this card is in
+                     a Filament panel, and the page it is about is documented
+                     there. The plugin's own header link goes to the same place. --}}
                 <x-filament::link
                     color="gray"
-                    href="https://trussphp.com"
+                    href="https://trussphp.com/filament/"
                     :icon="Heroicon::BookOpen"
                     rel="noopener noreferrer"
                     target="_blank"
