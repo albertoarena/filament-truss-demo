@@ -33,11 +33,6 @@ Edit the plugin, reload the page, see the change. The next `composer install`
 puts the released package back, so none of it is permanent and none of it is
 committed.
 
-**A path repository used to do this job and was removed at release.** A path
-repository whose directory is missing is a hard error rather than a warning, so
-leaving it in would have broken `composer install` for everybody without a
-sibling checkout, which is everybody but the author.
-
 ## Running it
 
 ```bash
