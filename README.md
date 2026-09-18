@@ -55,6 +55,21 @@ and the schema is the product.
 
 The panel is at `/admin` and the page at `/admin/database-schema`.
 
+## Why the panel says Marginalia Books
+
+The repository is named after the plugin and **the panel deliberately is not**.
+`AdminPanelProvider` sets no `->brandName()`, so the sidebar shows
+`config('app.name')`, and that string is in frame in every screenshot that keeps
+the panel chrome, including the ones on the documentation site. A panel named
+after the plugin reads as a toy; one named after the shop it manages reads as an
+application that happens to have the page installed, which is the whole claim
+those pictures make.
+
+So `APP_NAME` is a bookshop, in `.env.example` as well as in your `.env`, and
+`tests/Feature/PanelBrandTest.php` fails if either goes back to naming the
+plugin. Renaming it signs you out, because Laravel derives the session cookie
+name from `APP_NAME`: visit `/demo-login` again.
+
 ## What the schema is, and why
 
 Laravel's own tables are four boxes with almost no edges, which tells you nothing
