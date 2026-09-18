@@ -86,16 +86,16 @@
         },
         {
             "name": "albertoarena/laravel-truss",
-            "version": "v1.13.0",
+            "version": "v1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/albertoarena/laravel-truss.git",
-                "reference": "010e79a35df52257e132528f25191d9d463b720f"
+                "reference": "5e134d1e60063a507c403f7d9062ddfd6eb044f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/albertoarena/laravel-truss/zipball/010e79a35df52257e132528f25191d9d463b720f",
-                "reference": "010e79a35df52257e132528f25191d9d463b720f",
+                "url": "https://api.github.com/repos/albertoarena/laravel-truss/zipball/5e134d1e60063a507c403f7d9062ddfd6eb044f9",
+                "reference": "5e134d1e60063a507c403f7d9062ddfd6eb044f9",
                 "shasum": ""
             },
             "require": {
@@ -163,7 +163,7 @@
                     "type": "ko-fi"
                 }
             ],
-            "time": "2026-09-15T19:57:20+00:00"
+            "time": "2026-09-18T09:55:39+00:00"
         },
         {
             "name": "anourvalar/eloquent-serialize",
