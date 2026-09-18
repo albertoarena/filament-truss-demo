@@ -115,9 +115,8 @@ That last row is the part of the database an admin cannot see, which is what the
 plugin's resource linking is meant to report, and the half that reports it is
 still to come. Worth knowing before it is built: **Truss already excludes most of
 those tables by config**, so the diagram draws eight, not sixteen. Excluded and
-unmapped are different
-things, and a naive implementation would report the two pivots as gaps when they
-are nothing of the sort.
+unmapped are different things, and a naive implementation would report the two
+pivots as gaps when they are nothing of the sort.
 
 ## What to look at
 
