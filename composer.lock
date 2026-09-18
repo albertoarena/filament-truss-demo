@@ -4,15 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "49a822500c20f8b65399e68c847eb3eb",
+    "content-hash": "323597485e3ee039988db326ea4651f8",
     "packages": [
         {
             "name": "albertoarena/filament-truss",
-            "version": "dev-main",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/albertoarena/filament-truss.git",
+                "reference": "ac1546dea8c3f7a0cd6c6898b93f6d1388fbc559"
+            },
             "dist": {
-                "type": "path",
-                "url": "../filament-truss",
-                "reference": "e8082ed5a11e5fb1a525ea00dd12ad96a3c063d8"
+                "type": "zip",
+                "url": "https://api.github.com/repos/albertoarena/filament-truss/zipball/ac1546dea8c3f7a0cd6c6898b93f6d1388fbc559",
+                "reference": "ac1546dea8c3f7a0cd6c6898b93f6d1388fbc559",
+                "shasum": ""
             },
             "require": {
                 "albertoarena/laravel-truss": "^1.13",
@@ -40,25 +46,7 @@
                     "AlbertoArena\\FilamentTruss\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "AlbertoArena\\FilamentTruss\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/pest"
-                ],
-                "test:coverage": [
-                    "vendor/bin/pest --coverage"
-                ],
-                "lint": [
-                    "vendor/bin/pint --test"
-                ],
-                "lint:fix": [
-                    "vendor/bin/pint"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -84,20 +72,17 @@
                 "truss"
             ],
             "support": {
+                "docs": "https://trussphp.com",
                 "issues": "https://github.com/albertoarena/filament-truss/issues",
-                "source": "https://github.com/albertoarena/filament-truss",
-                "docs": "https://trussphp.com"
+                "source": "https://github.com/albertoarena/filament-truss"
             },
             "funding": [
                 {
-                    "type": "ko-fi",
-                    "url": "https://ko-fi.com/albertoarena"
+                    "url": "https://ko-fi.com/albertoarena",
+                    "type": "ko-fi"
                 }
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-09-18T09:08:05+00:00"
         },
         {
             "name": "albertoarena/laravel-truss",
@@ -10652,10 +10637,8 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "albertoarena/filament-truss": 20
-    },
+    "minimum-stability": "stable",
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

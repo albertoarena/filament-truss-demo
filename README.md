@@ -9,16 +9,29 @@ a Filament panel.
 markup is right and the payload is embedded; it cannot tell you the diagram
 looks like something a person would want to use. That needs a browser.
 
-## Status: private, and tracking an unreleased plugin
+## Status: public, and tracking the released plugin
 
-The plugin has no tagged release, so this application does **not** install it
-from Packagist. It uses a Composer **path repository** pointing at a sibling
-checkout, symlinked, which means the app runs whatever is in your working tree.
-Edit the plugin, reload the page, see the change.
+This application installs `albertoarena/filament-truss` from Packagist like any
+other host would, so `composer install` works anywhere and **this repository
+stands alone**.
 
-That is deliberate and it is the whole point, but it has one consequence: **this
-repository does not stand alone.** Without `../filament-truss` beside it,
-`composer install` fails.
+**To run it against a working tree instead**, which is what you want while
+changing the plugin, install as usual and then replace the installed copy with a
+link to a sibling checkout:
+
+```bash
+rm -rf vendor/albertoarena/filament-truss
+ln -s ../../../filament-truss vendor/albertoarena/filament-truss
+```
+
+Edit the plugin, reload the page, see the change. The next `composer install`
+puts the released package back, so none of it is permanent and none of it is
+committed.
+
+**A path repository used to do this job and was removed at release.** A path
+repository whose directory is missing is a hard error rather than a warning, so
+leaving it in would have broken `composer install` for everybody without a
+sibling checkout, which is everybody but the author.
 
 ## Running it
 
