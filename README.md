@@ -18,20 +18,12 @@ looks like something a person would want to use. That needs a browser.
 
 This application installs `albertoarena/filament-truss` from Packagist like any
 other host would, so `composer install` works anywhere and **this repository
-stands alone**.
+stands alone**. What you see here is the released plugin, in a panel that
+configures nothing special to get it.
 
-**To run it against a working tree instead**, which is what you want while
-changing the plugin, install as usual and then replace the installed copy with a
-link to a sibling checkout:
-
-```bash
-rm -rf vendor/albertoarena/filament-truss
-ln -s ../../../filament-truss vendor/albertoarena/filament-truss
-```
-
-Edit the plugin, reload the page, see the change. The next `composer install`
-puts the released package back, so none of it is permanent and none of it is
-committed.
+Working on the plugin itself is the other direction, and it is documented there:
+[`docs/MANUAL-TESTS.md`](https://github.com/albertoarena/filament-truss/blob/main/docs/MANUAL-TESTS.md)
+covers pointing this application at a working tree and what to check once it is.
 
 ## Running it
 
