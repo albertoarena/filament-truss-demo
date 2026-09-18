@@ -1,5 +1,10 @@
 # Filament Truss Demo
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/albertoarena/filament-truss/main/art/filamentphp/image-dark.jpg">
+  <img src="https://raw.githubusercontent.com/albertoarena/filament-truss/main/art/filamentphp/image-light.jpg" alt="Filament Truss">
+</picture>
+
 A small Filament application for looking at
 [albertoarena/filament-truss](https://github.com/albertoarena/filament-truss),
 the plugin that renders a live ER diagram of the real database as a page inside
@@ -9,7 +14,7 @@ a Filament panel.
 markup is right and the payload is embedded; it cannot tell you the diagram
 looks like something a person would want to use. That needs a browser.
 
-## Status: public, and tracking the released plugin
+## The plugin comes from Packagist
 
 This application installs `albertoarena/filament-truss` from Packagist like any
 other host would, so `composer install` works anywhere and **this repository
@@ -36,7 +41,6 @@ sibling checkout, which is everybody but the author.
 ## Running it
 
 ```bash
-git clone git@github.com:albertoarena/filament-truss.git      # the plugin, as a sibling
 git clone git@github.com:albertoarena/filament-truss-demo.git
 cd filament-truss-demo
 
@@ -108,9 +112,10 @@ The resources are not a complete admin, and the gaps are the interesting part.
 | `migrations`, `cache`, `cache_locks`, `jobs`, `job_batches`, `failed_jobs`, `sessions`, `password_reset_tokens` | **Nothing.** Framework plumbing, and no panel manages it |
 
 That last row is the part of the database an admin cannot see, which is what the
-plugin's planned resource linking is meant to report. Worth knowing before that
-feature is built: **Truss already excludes most of those tables by config**, so
-the diagram draws eight, not seventeen. Excluded and unmapped are different
+plugin's resource linking is meant to report, and the half that reports it is
+still to come. Worth knowing before it is built: **Truss already excludes most of
+those tables by config**, so the diagram draws eight, not sixteen. Excluded and
+unmapped are different
 things, and a naive implementation would report the two pivots as gaps when they
 are nothing of the sort.
 
@@ -123,8 +128,12 @@ are nothing of the sort.
   the page by `Truss::payload()`.
 - Filter, focus and depth all work against the embedded payload, client side.
 - The health markers come from `truss:doctor`, which rides the same payload.
+- **Book and Author carry the focus button**, which is `HasViewInSchemaAction` on
+  the resource and nothing else. It opens the diagram on that table, and it
+  removes itself for a viewer who may not see the page or a table Truss
+  excludes.
 
-## Theming, which is done
+## Theming
 
 The diagram takes the panel's own colours, from the custom properties Filament
 generates out of the panel's colour configuration. Change the panel's primary
